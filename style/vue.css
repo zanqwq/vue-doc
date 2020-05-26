@@ -1,0 +1,113 @@
+[v-cloak] {
+    display: none;
+}
+
+/*  */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+    {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------ */
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1, .5, .8, 1);
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(10px);
+    opacity: 0;
+}
+
+/* ------------------------------------------------------ */
+
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ------------------------------------------------------ */
+
+.v-enter-active, .v-leave-active {
+    transition: all .5s ease;
+}
+
+.v-enter, .v-leave-to {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------ */
+
+.component-fade-enter-active, .component-fade-leave-active {
+    transition: all .5s ease
+}
+
+.component-fade-enter, .component-fade-leave-to {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------ */
+
+.list-enter-active, .list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter, .list-leave-to {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+#app-56 span {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* ------------------------------------------------------ */
+
+#app-57 span {
+    display: inline-block;
+    margin-right: 20px;
+    /* 设置从正常文档流状态到其他状态的(进入, 离开, 移动)过渡 */
+    transition: all 1s ease;
+}
+
+.list-smooth-enter, .list-smooth-leave-to {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.list-smooth-leave-active {
+    /* 当元素处于正在离开的状态时, 要让删除的元素先脱离文档流, 旁边的元素才能移动过渡过来 */
+    position: absolute;
+}
+
+/* 也可以手动设置从 move 到 move 结束的过渡/
+/* .list-smooth-move {
+    transition: all 1s;
+} */

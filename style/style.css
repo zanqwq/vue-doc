@@ -1,0 +1,180 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    --vue-color: rgb(65, 184, 131)
+}
+
+body {
+    position: relative;
+    padding-top: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        transform: translateX(-50%);
+        position: absolute;
+        left: 50%;
+    }
+}
+
+h1, h2[id], h3[id], h4[id], h5[id], h6[id] {
+    margin-top: -50px;
+    padding-top: 50px;
+}
+
+h4 {
+    margin-top: 50px;
+}
+
+#scrollspyer {
+    /* positioning */
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    left: 0px;
+    z-index: 9999;
+    /* box model */
+    width: 300px;
+    border-radius: 0px 20px 20px 0px;
+    /* typographic */
+    color: white;
+    overflow: auto;
+    /* visual */
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.5s ease-in-out;
+}
+
+#scrollspyer li {
+    word-wrap: break-word;
+}
+
+#scrollspyer .section-header {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--vue-color);
+    letter-spacing: 10px;
+}
+
+#scrollspyer .section, #scrollspyer .subsection {
+    font-size: 1.5rem;
+    letter-spacing: 0px;
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+#scrollspyer>ul>.section .subsection {
+    display: none;
+}
+
+#scrollspyer>ul>.section.active .subsection {
+    display: block;
+}
+
+#scrollspyer a {
+    color: whitesmoke;
+    background-color: transparent;
+}
+
+#scrollspyer li.section.active>a {
+    border-left: 2px solid var(--vue-color);
+    box-shadow: inset 10px 0 10px -10px var(--vue-color);
+}
+
+#scrollspyer li.subsection.active>a {
+    border-left: 1px solid var(--vue-color);
+    box-shadow: inset 10px 0 10px -10px var(--vue-color);
+}
+
+/* 设置滚动条的样式 */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 滚动槽 */
+
+::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.3); */
+    border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(65, 184, 131, 0.6);
+    /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5); */
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(65, 184, 131, 0.1);
+}
+
+pre {
+    border-radius: 10px;
+    margin: 20px 0;
+    /* white-space: pre; */
+}
+
+.code-output {
+    margin: 50px 0px;
+    padding: 50px;
+    min-height: 100px;
+    border-radius: 25px;
+
+    transition: all 0.35s ease-in-out;
+}
+
+.code-output samp::before {
+    content: "Output :";
+    font-size: large;
+    color: red;
+}
+
+.code-output:hover, .code-output:focus {
+    box-shadow: -10px 10px 10px 5px rgb(209, 209, 209);
+}
+
+.content {
+    margin-left: 320px;
+    letter-spacing: 3px;
+    transition: all 0.1s ease-in-out;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+article::before {
+    display: block;
+    width: 100%;
+    border: 1px solid rgb(224, 224, 224);
+    margin-top: 50px;
+    content: "";
+    /* make a separator between each article */
+}
+
+.content ul, .content ol {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #scrollspyer.open {
+        transform: translateX(0px);
+        transition: all 0.5s ease-in-out;
+    }
+    #scrollspyer {
+        transform: translateX(-300px);
+        transition: all 0.5s ease-in-out;
+    }
+    .content {
+        margin-left: 20px;
+        transition: all 0.1s ease-in-out;
+    }
+}
