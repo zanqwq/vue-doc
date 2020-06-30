@@ -1130,8 +1130,8 @@ let app7 = new Vue({
                                 </li>
                                 <li>
                                     值为对象时, 作为一个选项对象.
-                                    <br>
-                                    选项<code>handler</code>可以是现在描述的任意4个值之一, 当然很少会让<code>handler</code>选项继续套娃一个选项对象=-=;
+<br>
+                                    选项<code>handler</code>可以是现在描述的任意4个值之一(不会真有人给<code>handler</code>选项继续套娃一个选项对象吧, 不会吧, 不会吧)
                                     必选项, 下面两项为可选
                                     <br>
                                     <code>immediate</code>选项值为boolean, 为<code>true</code>时回调将会在侦听开始时立刻调用, 未指定时默认为false.
@@ -7492,30 +7492,32 @@ render: function (createElement) {
                         </p>
 
                         <p>
-                            还可以利用数据对象中的<code>slot</code>字段指定要向哪个插槽分发内容 : 
+                            还可以利用数据对象中的<code>slot</code>字段指定该子组件作为父组件的哪个插槽内容 : 
                         </p>
 
                         <pre>
-render: function (createElement) {
-    // 等价模板为 : 
-    // &lt;child&gt;
-    //   &lt;template #foo&gt;
-    //     foo
-    //   &lt;/template&gt;
-    // &lt;/child&gt;
-    return createElement(
-        'child',
-        [
-            createElement(
-                'template',
-                {
-                    slot: "foo"
-                },
-                "foo"
-            )
-        ]
-    )
-}
+&lt;div id="app">
+&lt;/div>
+
+&lt;script>
+    Vue.component("Child", {
+        template: `
+            &lt;div>&lt;slot>&lt;/slot>&lt;/div>
+        `
+    });
+
+    Vue.component("Parent", {
+        template: `
+            &lt;div>&lt;slot name="foo">&lt;/slot>&lt;/div>
+        `
+    });
+
+    new Vue({
+        render: h => h("Parent", [
+            h("Child", { slot: "foo" }, "default")
+        ])
+    }).$mount("#app");
+&lt;/script>
                         </pre>
 
                         <p>
